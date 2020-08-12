@@ -1,0 +1,86 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LIBCONFIG = exports.TAGS = void 0;
+var TAGS;
+(function (TAGS) {
+    let CLIENT;
+    (function (CLIENT) {
+        CLIENT["NOMCLIENT"] = "@nomClient";
+        CLIENT["PRENOMCLIENT"] = "@prenomClient";
+        CLIENT["ADRESSECLIENT"] = "@adresseClient";
+        CLIENT["VILLECLIENT"] = "@villeClient";
+        CLIENT["CODEPOSTALCLIENT"] = "@codePostalClient";
+        CLIENT["TELCLIENT"] = "@telClient";
+        CLIENT["MAILCLIENT"] = "@mailClient";
+    })(CLIENT = TAGS.CLIENT || (TAGS.CLIENT = {}));
+    let COMMANDE;
+    (function (COMMANDE) {
+        COMMANDE["NUMEROCOMMANDE"] = "@numeroCommande";
+        COMMANDE["ADRESSELIVRAISON"] = "@adresseLivraison";
+        COMMANDE["VILLELIVRAISON"] = "@villeLivraison";
+        COMMANDE["CODEPOSTALLivraison"] = "@codePostalLivraison";
+    })(COMMANDE = TAGS.COMMANDE || (TAGS.COMMANDE = {}));
+    let GLOBALE;
+    (function (GLOBALE) {
+        GLOBALE["DATE"] = "@date";
+        GLOBALE["LIENCONFIRMATIONCOMPTE"] = "@lienConfirmation";
+        GLOBALE["SIGNATURE"] = "signature";
+    })(GLOBALE = TAGS.GLOBALE || (TAGS.GLOBALE = {}));
+})(TAGS = exports.TAGS || (exports.TAGS = {}));
+var LIBCONFIG;
+(function (LIBCONFIG) {
+    let APPCONFIG;
+    (function (APPCONFIG) {
+        APPCONFIG["APPNAME"] = "APPNAME";
+    })(APPCONFIG = LIBCONFIG.APPCONFIG || (LIBCONFIG.APPCONFIG = {}));
+    let SMTP;
+    (function (SMTP) {
+        SMTP["SERVICE"] = "SERVICE";
+        SMTP["HOSTMAIL"] = "HOSTMAIL";
+        SMTP["OWNERMAIL"] = "OWNERMAIL";
+        SMTP["PASSWORDMAIL"] = "PASSWORDMAIL";
+        SMTP["SSLMAIL"] = "SSLMAIL";
+        SMTP["TLSMAIL"] = "TLSMAIL";
+        SMTP["PORTMAIL"] = "PORTMAIL";
+        SMTP["AUTHMAIL"] = "AUTHMAIL";
+        SMTP["DOMAINE"] = "DOMAINESMTP";
+    })(SMTP = LIBCONFIG.SMTP || (LIBCONFIG.SMTP = {}));
+    let COMMANDE;
+    (function (COMMANDE) {
+        COMMANDE["SUBJECTMAILCOMMANDEOK"] = "SUBJECTMAILCOMMANDEOK";
+        COMMANDE["CONTENUMAILCOMMANDEOK"] = "CONTENUMAILCOMMANDEOK";
+        COMMANDE["SUBJECTMAILNOTIFCOMMANDEOK"] = "SUBJECTMAILNOTIFCOMMANDEOK";
+        COMMANDE["CONTENUMAILNOTIFCOMMANDEOK"] = "CONTENUMAILNOTIFCOMMANDEOK";
+    })(COMMANDE = LIBCONFIG.COMMANDE || (LIBCONFIG.COMMANDE = {}));
+    let COMPTE;
+    (function (COMPTE) {
+        COMPTE["SUBJECTMAILVALIDATIONCOMPTE"] = "SUBJECTMAILVALIDATIONCOMPTE";
+        COMPTE["CONTENUMAILVALIDATIONCOMPTE"] = "CONTENUMAILVALIDATIONCOMPTE";
+        COMPTE["SUBJECTMAILBIENVENUE"] = "SUBJECTMAILBIENVENUE";
+        COMPTE["CONTENUMAILBIENVENUE"] = "CONTENUMAILBIENVENUE";
+    })(COMPTE = LIBCONFIG.COMPTE || (LIBCONFIG.COMPTE = {}));
+    let GLOBAL;
+    (function (GLOBAL) {
+        GLOBAL["SIGNATURE"] = "SIGNATURE";
+        GLOBAL["MAILFORADMIN"] = "MAILFORADMIN";
+        GLOBAL["FACEBOOK"] = "FACEBOOK";
+        GLOBAL["INSTAGRAM"] = "INSTAGRAM";
+    })(GLOBAL = LIBCONFIG.GLOBAL || (LIBCONFIG.GLOBAL = {}));
+    let BLOC;
+    (function (BLOC) {
+        let PRINCIPAL;
+        (function (PRINCIPAL) {
+            PRINCIPAL["TITLEIMAGEPAGEPRINCIPALE"] = "TITLEIMAGEPAGEPRINCIPALE";
+            PRINCIPAL["CONTENUIMAGEPAGEPRINCIPALE"] = "CONTENUIMAGEPAGEPRINCIPALE";
+            PRINCIPAL["BOUTONIMAGEPAGEPRINCIPALE"] = "BOUTONIMAGEPAGEPRINCIPALE";
+        })(PRINCIPAL = BLOC.PRINCIPAL || (BLOC.PRINCIPAL = {}));
+        let PRODUCT;
+        (function (PRODUCT) {
+            PRODUCT["TITLEPRODUCTS"] = "TITLEPRODUCTS";
+            PRODUCT["SUBTITLEPRODUCTS"] = "SUBTITLEPRODUCTS";
+            PRODUCT["CONTENUPRODUCTS"] = "CONTENUPRODUCTS";
+            PRODUCT["BOUTONPRODUCTS"] = "BOUTONPRODUCTS";
+        })(PRODUCT = BLOC.PRODUCT || (BLOC.PRODUCT = {}));
+    })(BLOC = LIBCONFIG.BLOC || (LIBCONFIG.BLOC = {}));
+})(LIBCONFIG = exports.LIBCONFIG || (exports.LIBCONFIG = {}));
+//# sourceMappingURL=configClient.js.map

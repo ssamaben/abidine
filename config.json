@@ -1,0 +1,15 @@
+{
+    "port": 8081,
+    "database": {
+        "user": "ydcvcckflqzuwh",
+        "host": "ec2-54-247-78-30.eu-west-1.compute.amazonaws.com",
+        "database": "dfrolvj763hbt7",
+        "password": "c92d584bc383fb9d58571ecd4d02ce8123e937be2228c26141f972984aa04332",
+        "port": 5432,
+        "ssl": {
+            "rejectUnauthorized": false
+        }
+    },
+    "secretToken": "AbidineProjectToken",
+    "tokenExpiration": 86400
+}
