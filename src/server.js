@@ -43,8 +43,7 @@ const objection_1 = require("objection");
 const io = require('socket.io');
 var jwt = require('jsonwebtoken');
 class Server {
-    constructor(app, appInit) {
-        this.app = app;
+    constructor(appInit) {
         this.DIRECTORY_FRONT = '../FrontEndProject';
         stockage_1.StockageProject.config = configProject;
         stockage_1.StockageProject.configDatabase = {
@@ -54,6 +53,7 @@ class Server {
             }),
         };
         objection_1.Model.knex(stockage_1.StockageProject.configDatabase.knex);
+        this.app = express_1.default();
         this.app.use(express_1.default.static('public'));
         console.log('****');
         console.log('process.env.PORT ', process.env.PORT);
@@ -78,7 +78,6 @@ class Server {
                 stockage_1.StockageProject.ConfigClientAsObject[conf.lib] = conf.valeur;
             });
             console.log('setSMTP');
-            stockage_1.StockageProject.setSMTP();
         });
     }
     middlewares(middleWares) {

@@ -16,7 +16,9 @@ class SocketProject {
         }
         this.socketLock = true;
         try {
+            console.log('sendSocket');
             this.socket.emit((idClient || 'all'), JSON.stringify(message));
+            console.log('unlock');
             this.socketLock = false;
         }
         catch (e) {

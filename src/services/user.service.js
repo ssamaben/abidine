@@ -145,7 +145,7 @@ class UserService {
                 sendParamsClient.html
                     .replace(configClient_1.TAGS.GLOBALE.DATE, dateNow.toLocaleString())
                     .replace(configClient_1.TAGS.GLOBALE.LIENCONFIRMATIONCOMPTE, stockage_1.StockageProject.hostFront + '/validationCompte/' + tokenCreation);
-            stockage_1.StockageProject.sendMail(sendParamsClient, configClient);
+            yield stockage_1.StockageProject.sendMail(sendParamsClient, configClient);
             res.status(201).send({ succes: true });
         }));
         this.router.post('/register', (req, res) => {
@@ -199,7 +199,7 @@ class UserService {
                             .replace(configClient_1.TAGS.CLIENT.ADRESSECLIENT, userClient.adresse)
                             .replace(configClient_1.TAGS.CLIENT.VILLECLIENT, userClient.ville)
                             .replace(configClient_1.TAGS.CLIENT.CODEPOSTALCLIENT, userClient.codePostal);
-                    stockage_1.StockageProject.sendMail(sendParamsClient, configClient);
+                    yield stockage_1.StockageProject.sendMail(sendParamsClient, configClient);
                     userClient.token = jwt.sign({ id: userClient.id }, stockage_1.StockageProject.config.secretToken, {
                         expiresIn: stockage_1.StockageProject.config.tokenExpiration
                     });

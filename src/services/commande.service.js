@@ -85,7 +85,9 @@ class CommandeService {
                 const commande = commandes[0];
                 (yield commandeModel_1.CommandeModel.query().insert(commandes).returning('id'));
                 const configClient = yield configClientModel_1.ConfigClientModel.query();
+                console.log('sendmMessageSocket');
                 socket_project_2.default.sendMessage(socket_project_1.SocketEnum.COMMANDEINSERT, commandes);
+                console.log('setHostForMail');
                 stockage_1.StockageProject.setHostForMail(req);
                 const mailOwner = configClient.find(config => config.lib === configClient_1.LIBCONFIG.SMTP.OWNERMAIL);
                 const subjectClientCommandeOk = configClient.find(config => config.lib === configClient_1.LIBCONFIG.COMMANDE.SUBJECTMAILCOMMANDEOK);
@@ -97,6 +99,7 @@ class CommandeService {
                     html: contenuClientCommandeOk.valeur,
                     attachments: []
                 };
+                console.log('11');
                 sendParamsClient.html = sendParamsClient.html
                     .replace(configClient_1.TAGS.COMMANDE.NUMEROCOMMANDE, numeroCommande)
                     .replace(configClient_1.TAGS.GLOBALE.DATE, dateNow.toLocaleString())
@@ -110,7 +113,8 @@ class CommandeService {
                     .replace(configClient_1.TAGS.CLIENT.ADRESSECLIENT, userClient.adresse)
                     .replace(configClient_1.TAGS.CLIENT.VILLECLIENT, userClient.ville)
                     .replace(configClient_1.TAGS.CLIENT.CODEPOSTALCLIENT, userClient.codePostal);
-                stockage_1.StockageProject.sendMail(sendParamsClient, configClient);
+                console.log('22');
+                yield stockage_1.StockageProject.sendMail(sendParamsClient, configClient);
                 const subjectNotifAdmin = configClient.find(config => config.lib === configClient_1.LIBCONFIG.COMMANDE.SUBJECTMAILNOTIFCOMMANDEOK);
                 const contenuNotifAdmin = configClient.find(config => config.lib === configClient_1.LIBCONFIG.COMMANDE.CONTENUMAILNOTIFCOMMANDEOK);
                 let requet = userModel_1.UserModel.query().where({
@@ -142,11 +146,13 @@ class CommandeService {
                     .replace(configClient_1.TAGS.CLIENT.ADRESSECLIENT, userClient.adresse)
                     .replace(configClient_1.TAGS.CLIENT.VILLECLIENT, userClient.ville)
                     .replace(configClient_1.TAGS.CLIENT.CODEPOSTALCLIENT, userClient.codePostal);
-                userFinded.forEach(admin => {
+                console.log('33');
+                userFinded.forEach((admin) => __awaiter(this, void 0, void 0, function* () {
                     sendParamsAdmin['to'] = admin.mail;
                     console.log('sendParamsAdmin', sendParamsAdmin);
-                    stockage_1.StockageProject.sendMail(sendParamsAdmin, configClient);
-                });
+                    yield stockage_1.StockageProject.sendMail(sendParamsAdmin, configClient);
+                }));
+                console.log('44');
                 res.status(200).send({ succes: true });
             }), res);
         });

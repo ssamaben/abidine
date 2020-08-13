@@ -32,9 +32,7 @@ const cors_1 = __importDefault(require("cors"));
 const adresse_service_1 = __importDefault(require("./services/adresse.service"));
 const config_service_1 = __importDefault(require("./services/config.service"));
 var whitelist = ['abidine-project.herokuapp.com'];
-const express_1 = __importDefault(require("express"));
-const app = express_1.default();
-const server = new server_1.default(app, {
+const server = new server_1.default({
     imports: [
         bodyParser.json({ limit: '100mb' }),
         bodyParser.urlencoded({ limit: '100mb', extended: true }),

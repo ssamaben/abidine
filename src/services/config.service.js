@@ -58,9 +58,6 @@ class ConfigClientService {
                     yield configClientModel_1.ConfigClientModel.query().findById(conf.id).patch(conf);
                     console.log('updated');
                 }));
-                if (existSMTP) {
-                    stockage_1.StockageProject.setSMTP();
-                }
                 res.status(201).send({ succes: true });
             }), res);
         }));
